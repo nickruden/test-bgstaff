@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>401 Unauthorized</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=282EzqUOsWweMDjh5zencCOlIDjJ1t5KDiwGOSRhF6ohNNBqvnYpMfK-HXxeDqQc4slTJhW_wsxIwKQgLJSb9Q" charset="UTF-8"></script></head><body>
+<h1>Unauthorized</h1>
+<p>This server could not verify that you
+are authorized to access the document
+requested.  Either you supplied the wrong
+credentials (e.g., bad password), or your
+browser doesn't understand how to supply
+the credentials required.</p>
+<hr>
+<address>Apache/2.4.55 (Unix) Server at test.bgstaff.ru Port 80</address>
+</body></html>
