@@ -203,7 +203,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         window.addEventListener('load', adjustImageWidth);
         window.addEventListener('resize', adjustImageWidth);
     </script>
-	<!-- Place the first <script> tag in your HTML's <head> -->
+
 <script src="https://cdn.tiny.cloud/1/n4h7abn7hi6tgm42xogxxlvvqob8me4dmg504vqw2oczjqus/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
@@ -255,9 +255,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 			// Формируем структуру с акцентом и inline-стилями
 			const accentHtml = `
-				<div contenteditable="false" style="max-width: 547px;">
-					<div style="padding: 14px 40px 14px 19px; display: flex; gap: 18px; background-color: #F2FAFF; border: 1px solid #6293AF; border-radius: 10px;">
-						<div>
+				<div contenteditable="false" class="accent-dialog">
+					<div class="accent-dialog__container">
+						<div class="accent-dialog__img">
 							<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_2005_435)">
 									<rect width="46" height="46" rx="10" fill="#0D5680"/>
@@ -270,7 +270,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								</defs>
 							</svg>		
 						</div>
-						<div style="padding-top: 8px; max-width: 422px; font-family: 'Rawline', sans-serif; font-size: 18px; font-weight: 400; line-height: 25.5px; color: #37393A;">
+						<div class="accent-dialog__content">
 							${wrappedText}
 						</div>
 					</div>
@@ -299,7 +299,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		// Отключаем "очистку" HTML
 		valid_elements: '*[*]',
 		valid_children: '+body[style]',
-		content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+		content_style: '.accent-dialog { max-width: 547px; margin-left: 50px; } .accent-dialog__container { padding: 14px 40px 14px 19px; display: flex; gap: 18px; background-color: #F2FAFF; border: 1px solid #6293AF; border-radius: 10px; } .accent-dialog__img { } .accent-dialog__content { padding-top: 8px; max-width: 422px; font-family: "Rawline"; font-size: 18px; font-weight: 400; line-height: 25.5px; color: #37393A; letter-spacing: 0px; } .accent-dialog__content span { display: inline-block; } @media (max-width: 768px) { .accent-dialog { margin-left: 20px; } } @media (max-width: 600px) { .accent-dialog { margin-left: 0px; } } @media (max-width: 570px) { .accent-dialog { max-width: none; width: 100%; display: flex; justify-content: center; } .accent-dialog__container { max-width: 420px; } .accent-dialog__content { padding-top: 4px; font-size: 17px; line-height: 20px; } } @media (max-width: 480px) { .accent-dialog__container { max-width: 364px; } .accent-dialog__content { padding-top: 2px; font-size: 16px; line-height: 120%; } } @media (max-width: 375px) { .accent-dialog__container { padding: 14px 19px 14px 19px; } }'
 	});
 </script>
 
