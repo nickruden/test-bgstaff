@@ -115,6 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		/* БЛОК АКЦЕНТА */
 		.accent-dialog {
 			max-width: 547px;
+			margin-left: 50px;
 		}
 
 		.accent-dialog__container {
@@ -138,12 +139,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			font-weight: 400;
 			line-height: 25.5px;
 			color: #37393A;
+			letter-spacing: 0px;
 		}
 		.accent-dialog__content span {
 			display: inline-block;
 		}
 
-		@media (max-width: 430px) {
+		@media (max-width: 768px) {
+			.accent-dialog {
+				margin-left: 20px;
+			}
+		}
+		@media (max-width: 600px) {
+			.accent-dialog {
+				margin-left: 0px;
+			}
+		}
+		@media (max-width: 570px) {
+			.accent-dialog {
+			max-width: none;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+		.accent-dialog__container {
+			max-width: 420px;
+		}
+			.accent-dialog__content {
+				padding-top: 4px;
+				font-size: 17px;
+				line-height: 20px;
+			}
+		}
+		@media (max-width: 480px) {
+		.accent-dialog__container {
+			max-width: 364px;
+		}
+			.accent-dialog__content {
+				padding-top: 2px;
+				font-size: 16px;
+				line-height: 120%;
+			}
+		}
+		@media (max-width: 375px) {
 			.accent-dialog__container {
 				padding: 14px 19px 14px 19px;
 			}
@@ -645,7 +683,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									</defs>
 								</svg>		
 							</div>
-							<div class="accent-dialog__content">Акцент «важно, интересно, обратите внимание»</div>
+							<div class="accent-dialog__content"><span>Акцент «важно, интересно, обратите внимание»</span></div>
 						</div>
 					</div>
 				</span>
