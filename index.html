@@ -245,7 +245,7 @@
 
 <script src="https://cdn.tiny.cloud/1/yfszsjyl6e9r8c1lpmau9ijn4zzb9rkgo7vhns3jt9zz5peu/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
-	<!-- СКРИПТ ДЛЯ АКЦЕНТА -->
+	<!-- СКРИПТ ДЛЯ АКЦЕНТА ИЗМЕНИЛСЯ -->
 	<script>
 		function splitTextIntoSpans(text) {
 			// Разделяем текст на строки по символу новой строки (Enter)
@@ -394,8 +394,8 @@
 		}
 
 		.postig-author__name {
-			color: #0D5680;
 			font-size: 18px;
+			color: #0D5680;
 		}
 
 		.postig-author__job {
@@ -593,6 +593,94 @@
 		.page p+ul li > span:last-child {
 			padding-left: 13px;
 		}
+
+
+/* БЛОК ЦИТАТА */
+.quote-dialog {
+    position: relative;
+    margin-left: 30px;
+  }
+  
+  .quote-dialog__triangle {
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 30px solid #0D5680; /* Фон такой же, как у блока */
+}
+
+.quote-dialog__triangle::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: -15px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 30px solid #F2FAFF; /* Граница треугольника */
+  z-index: -1; /* Помещаем под основной треугольник */
+}
+.quote-dialog__container {
+	background-color: #F2FAFF;
+	border: 1px solid #0D5680;
+	border-radius: 30px;
+	padding: 32px 55px 28px 61px;
+	max-width: 727px;
+	width: 100%;
+}
+.quote-dialog__inner {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+.quote-dialog__content {
+	display: flex;
+	gap: 25px;
+}
+.quote-dialog__img-wrap {
+	max-width: 46px;
+	max-height: 45px;
+	margin-top: 4px;
+}
+.quote-dialog__text {
+	font-size: 18px;
+	line-height: 25px;
+	max-width: 540px;
+}
+.quote-dialog__author {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.quote-dialog__author-img-wrap {
+	width: 45px;
+	height: 45px;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #D9D9D9;
+}
+.quote-dialog__author-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.quote-dialog__author-text-info {
+	display: flex;
+	gap: 10px;
+}
+.quote-dialog__author-name {
+	font-size: 18px;
+	color: #0D5680;
+}
+.quote-dialog__author-job {
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.5);
+}
 	</style>
 
 </head>
@@ -1074,7 +1162,7 @@
 					</div>
 				</div>
 
-				<!-- ТО ЧТО ДЕЛАЛ (АВТОР, ДАТА, ПДЕЛИТЬСЯ) -->
+				<!-- ТО ЧТО ДЕЛАЛ (АВТОР, ДАТА, ПОДЕЛИТЬСЯ) -->
 				<div class="post-info">
 					<div class="post-info__container">
 						<div class="postig-author">
@@ -1243,6 +1331,8 @@
 								подойдет под выдвигаемые характеристики, будет и с работодателя спрашивать по максимуму:
 								зарплату выше средней, полный социальный пакет и т. д. Сможет ли компания все это
 								предоставить?</span></p>
+						
+								<!-- ТО ЧТО ДЕЛАЛ (АКЦЕНТ) -->
 						<p>
 							<span>
 								<div class="accent-dialog">
@@ -1265,6 +1355,37 @@
 										</div>
 										<div class="accent-dialog__content"><span>Акцент «важно, интересно, обратите
 												внимание»</span></div>
+									</div>
+								</div>
+							</span>
+						</p>
+								<!-- ТО ЧТО ДЕЛАЛ (ЦИТАТА) -->
+						<p>
+							<span>
+								<div class="quote-dialog">
+									<div class="quote-dialog__container">
+										<div class="quote-dialog__triangle"></div>
+										<div class="quote-dialog__inner">
+											<div class="quote-dialog__content">
+												<div class="quote-dialog__img-wrap">
+													<svg width="46" height="45" viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path fill-rule="evenodd" clip-rule="evenodd" d="M21.5156 6.53512C13.0281 12.0758 8.90661 17.794 8.90661 27.3481C9.46545 27.1705 9.95444 27.1705 10.4434 27.1705C14.8793 27.1705 19.1754 30.2249 19.1754 35.7301C19.1754 41.4483 15.5778 45 10.4434 45C3.80714 45 0 39.6014 0 29.9053C0 16.4088 6.11238 6.71271 17.5338 0L21.5156 6.53512ZM45.9651 6.53512C37.4776 12.0758 33.3561 17.794 33.3561 27.3481C33.915 27.1705 34.4039 27.1705 34.8929 27.1705C39.3288 27.1705 43.6249 30.2249 43.6249 35.7301C43.6249 41.4483 40.0273 45 34.8929 45C28.2916 45 24.4844 39.6014 24.4844 29.9053C24.4844 16.4088 30.5968 6.71271 42.0182 0L46 6.53512H45.9651Z" fill="#0D5680"/>
+													</svg>														
+												</div>
+												<div class="quote-dialog__text">
+													CDTO (Chief Digital Transformation Officer) – это руководящая должность в организации, отвечающая за стратегическое управление процессом цифровой трансформации компании. Сейчас технологии развиваются с невероятной скоростью. Роль цифровизации и этой профессии становится одной из ключевых для успешного бизнеса.
+												</div>
+											</div>
+											<div class="quote-dialog__author">
+												<div class="quote-dialog__author-img-wrap">
+													<img src="" alt="" class="quote-dialog__author-img">
+												</div>
+												<div class="quote-dialog__author-text-info">
+													<div class="quote-dialog__author-name">Анна Петрова</div>
+													<div class="quote-dialog__author-job">CEO компании «X»</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</span>
