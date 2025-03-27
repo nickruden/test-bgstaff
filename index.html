@@ -243,8 +243,7 @@
 		window.addEventListener('resize', adjustImageWidth);
 	</script>
 
-	<script src="https://cdn.tiny.cloud/1/n4h7abn7hi6tgm42xogxxlvvqob8me4dmg504vqw2oczjqus/tinymce/7/tinymce.min.js"
-		referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/yfszsjyl6e9r8c1lpmau9ijn4zzb9rkgo7vhns3jt9zz5peu/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 	<!-- СКРИПТ ДЛЯ АКЦЕНТА -->
 	<script>
@@ -269,11 +268,20 @@
 			body: {
 				type: 'panel',
 				items: [
+				{
+          type: 'selectbox', // Добавляем выпадающий список
+          name: 'accentType',
+          label: 'Тип акцента',
+          items: [
+            { value: 'exclamation', text: 'Восклицательный знак' },
+            { value: 'star', text: 'Звездочка' }
+          ]
+				},
 					{
 						type: 'textarea', // Текстовое поле для ввода
 						name: 'accentText',
 						label: 'Введите текст для акцента'
-					}
+					},
 				]
 			},
 			buttons: [
@@ -292,14 +300,16 @@
 			onSubmit: (api) => {
 				const data = api.getData();
 				const text = data.accentText;
-				const wrappedText = splitTextIntoSpans(text); // Разбиваем текст на <span>
-
-				// Формируем структуру с акцентом и inline-стилями
-				const accentHtml = `
-				<div contenteditable="false" class="accent-dialog">
-					<div class="accent-dialog__container">
-						<div class="accent-dialog__img">
-							<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+				const accentType = data.accentType;
+      			const wrappedText = splitTextIntoSpans(text);
+      
+      // Определяем SVG в зависимости от выбранного типа
+      const svgIcon = accentType === 'star' ? 
+        `<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="46" height="46" rx="10" fill="#0D5680"/>
+<path d="M29.9842 36.9997C29.6049 36.9997 29.2232 36.9075 28.8718 36.7218L22.5317 33.3643L16.1277 36.7206C15.7337 36.9315 15.2886 37.0262 14.8436 36.9938C14.3985 36.9613 13.9716 36.8031 13.6119 36.5373C13.2498 36.2749 12.9686 35.915 12.8005 35.499C12.6325 35.0829 12.5844 34.6276 12.6619 34.1853L13.8728 27.0779L8.72395 21.9827C8.40294 21.6705 8.17594 21.2734 8.06904 20.8371C7.96214 20.4008 7.97967 19.943 8.11963 19.5162C8.25621 19.0889 8.50958 18.7088 8.85073 18.4197C9.19187 18.1305 9.607 17.9439 10.0486 17.8813L17.1357 16.8443L20.358 10.3395C20.7639 9.51267 21.584 9 22.5003 9C23.4167 9 24.2367 9.51267 24.6427 10.3395L27.8128 16.8057L34.9521 17.8813C35.3937 17.9439 35.8088 18.1305 36.15 18.4197C36.4911 18.7088 36.7445 19.0889 36.8811 19.5162C37.0205 19.943 37.0377 20.4007 36.9308 20.8369C36.824 21.2731 36.5973 21.6702 36.2767 21.9827L31.1476 27.016L32.3388 34.1864C32.4156 34.6287 32.3672 35.0838 32.1992 35.4998C32.0312 35.9157 31.7504 36.2756 31.3888 36.5384C30.9804 36.837 30.4889 36.9984 29.9842 36.9997ZM10.342 20.3104L15.4701 25.3437C16.0326 25.8972 16.2901 26.6914 16.1579 27.4715L14.9481 34.58L15.5884 35.6871L15.0478 34.6536L21.3868 31.2973C21.7297 31.1159 22.1112 31.021 22.4985 31.0208C22.8858 31.0206 23.2673 31.1151 23.6104 31.2961L29.9505 34.6536L30.0503 34.58L28.8393 27.4726C28.7742 27.0883 28.8027 26.6938 28.9223 26.323C29.0419 25.9522 29.2491 25.6162 29.526 25.3437L34.6552 20.3104L34.6169 20.1901L27.5298 19.1531C27.1465 19.0966 26.7826 18.9473 26.4692 18.7181C26.1559 18.4888 25.9025 18.1865 25.7307 17.8369L22.5607 11.3707C22.5514 11.352 22.5409 11.3333 22.498 11.3333L19.2653 17.8369C19.0941 18.1864 18.8411 18.4888 18.5281 18.718C18.2152 18.9473 17.8516 19.0966 17.4686 19.1531L10.3792 20.1901L9.53125 21.1454L10.342 20.3104Z" fill="white"/>
+</svg>` :
+        `<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_2005_435)">
 									<rect width="46" height="46" rx="10" fill="#0D5680"/>
 									<path d="M20.834 26.6105V9.30908H26V26.6105H20.834ZM20.834 36.8862V31.0815H26V36.8862H20.834Z" fill="white"/>
@@ -309,7 +319,14 @@
 										<rect width="46" height="46" fill="white"/>
 									</clipPath>
 								</defs>
-							</svg>		
+							</svg>`;
+
+				// Формируем структуру с акцентом и inline-стилями
+				const accentHtml = `
+				<div contenteditable="false" class="accent-dialog">
+					<div class="accent-dialog__container">
+						<div class="accent-dialog__img">
+							${svgIcon}	
 						</div>
 						<div class="accent-dialog__content">
 							${wrappedText}
@@ -473,6 +490,7 @@
 
 		/* БЛОК СОДЕРЖАНИЕ */
 		.article-content {
+			padding-top: 47px;
 }
 .article-content__container {
 	background-color: #F2FAFF;
@@ -1056,7 +1074,7 @@
 					</div>
 				</div>
 
-				<!-- ТО ЧТО ДЕЛАЛ -->
+				<!-- ТО ЧТО ДЕЛАЛ (АВТОР, ДАТА, ПДЕЛИТЬСЯ) -->
 				<div class="post-info">
 					<div class="post-info__container">
 						<div class="postig-author">
@@ -1148,44 +1166,47 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</section>
 		<div class="container page">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="item-text">
-						<p><span><img src="./oshibkisob.jpg" align="left" />Любая компания стремится найти кандидатов,
-								которые принесут ей пользу. При этом в процессе найма часто допускаются промахи, которые
-								могут серьезно повлиять на успех отбора, стать фатальными. Рассмотрим
-							</span>распространенные ошибки при подборе кадров<span>, которые делают работодатели.
-								Предупрежден &ndash; значит, вооружен. Ознакомление с ними поможет избежать неправильных
-								решений, улучшить качество отбора.</span></p>
-						<h2><span>Ошибка №1: неопределенные требования к вакансии</span></h2>
 
-						<!-- ТО ЧТО ДЕЛАЛ -->
-						 <div class="article-content">
+						<!-- ТО ЧТО ДЕЛАЛ (СОДЕРЖАНИЕ) -->
+						<div class="article-content">
 							<div class="article-content__container">
 								<div class="article-content__inner">
 									<div class="article-content__title">Содержание</div>
 									<div class="article-content__nested-list-wrap">
 										<ol class="nested-list">
 											<li>Название пункта
-											  <ol>
-												<li>Название пункта</li>
-												<li>Название пункта</li>
-											  </ol>
+												<ol>
+													<li>Название пункта</li>
+													<li>Название пункта</li>
+												</ol>
 											</li>
 											<li>Название пункта
-											  <ol>
-												<li>Название пункта</li>
-												<li>Название пункта</li>
-											  </ol>
+												<ol>
+													<li>Название пункта</li>
+													<li>Название пункта</li>
+												</ol>
 											</li>
-										  </ol>
+										</ol>
 									</div>
 								</div>
 							</div>
-						 </div>
+						</div>
+					
+						<p><span><img src="./oshibkisob.jpg" align="left" />Любая компания стремится найти кандидатов,
+								которые принесут ей пользу. При этом в процессе найма часто допускаются промахи, которые
+								могут серьезно повлиять на успех отбора, стать фатальными. Рассмотрим
+							</span>распространенные ошибки при подборе кадров<span>, которые делают работодатели.
+								Предупрежден &ndash; значит, вооружен. Ознакомление с ними поможет избежать неправильных
+								решений, улучшить качество отбора.</span></p>
+
+						<h2><span>Ошибка №1: неопределенные требования к вакансии</span></h2>
 
 						<p><span>Установление основных этапов при найме новых сотрудников приносит успех при отборе.
 								Наличие контрольного списка компетенций и следование ему при общении с соискателями
