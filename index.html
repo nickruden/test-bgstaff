@@ -469,6 +469,112 @@
 		}
 
 		.posting-date__date-text {}
+
+
+		/* БЛОК СОДЕРЖАНИЕ */
+		.article-content {
+}
+.article-content__container {
+	background-color: #F2FAFF;
+	max-width: 357px;
+	width: 100%;
+	border-radius: 30px;
+	padding: 19px 39px 19px 49px;
+}
+.article-content__inner {
+	display: flex;
+	flex-direction: column;
+}
+.article-content__title {
+	margin-bottom: 30px;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 120%;
+	color: #0D5680;
+}
+.article-content__nested-list-wrap {
+	padding-bottom: 22px;
+}
+
+	.nested-list {
+  list-style-type: none;
+  counter-reset: item;
+  padding-left: 0px!important;
+  margin-bottom: 0px!important;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+
+.nested-list > li {
+  font-weight: 400;
+}
+
+.nested-list > li {
+  counter-increment: item;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.nested-list li:before {
+  line-height: 25px;
+  color: #0D5680;
+  margin-right: 10px;
+}
+
+.nested-list > li:before {
+  content: counter(item) ". ";
+  font-weight: 600;
+}
+
+.nested-list ol {
+  list-style-type: none;
+  counter-reset: subitem;
+  padding-left: 23px;
+  margin-bottom: 0px;
+}
+
+.nested-list ol > li {
+  counter-increment: subitem;
+  font-size: 15px;
+  line-height: 120%;
+}
+
+.nested-list ol > li:before {
+  content: counter(item) "." counter(subitem) ". ";
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+	.article-content {
+		display: flex;
+		justify-content: center;
+	}
+		}
+
+		@media (max-width: 375px) {
+			.article-content__container {
+				padding: 19px 30px 19px 43px;
+			}
+		}
+
+
+		/* ИСПРАВЛЕНИЕ МАРКЕРОВ СПИСКА */
+		.page p+ul li {
+			list-style-type: none;
+		}
+
+		.page p+ul li::before {
+			content: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9706 0.223793L4.63662 7.44209L1.33389 4.21175C1.02881 3.91336 0.534277 3.91336 0.228809 4.21175C-0.0762695 4.51015 -0.0762695 4.99384 0.228809 5.29223L4.0956 9.07464C4.40068 9.37265 4.89521 9.37265 5.20068 9.07464C5.23584 9.04026 5.26594 9.00279 5.29329 8.96384L13.0761 1.30462C13.3808 1.00623 13.3808 0.522541 13.0761 0.223793C12.7706 -0.0745976 12.2761 -0.0745976 11.9706 0.223793Z' fill='%230D5680'/%3E%3C/svg%3E");
+			margin-left: -28px;
+		}
+		.page p+ul li > span:first-child {
+			display: none;
+		}
+		.page p+ul li > span:last-child {
+			padding-left: 13px;
+		}
 	</style>
 
 </head>
@@ -949,6 +1055,8 @@
 								src="./images/blog-cover.png" /></div>
 					</div>
 				</div>
+
+				<!-- ТО ЧТО ДЕЛАЛ -->
 				<div class="post-info">
 					<div class="post-info__container">
 						<div class="postig-author">
@@ -968,10 +1076,10 @@
 							</div>
 						</div>
 						<!-- <div class="posting-date">
-					<div class="posting-date__container">
-						<div class="posting-date__date-text">25.12.24</div>
-					</div>
-				</div> -->
+							<div class="posting-date__container">
+								<div class="posting-date__date-text">25.12.24</div>
+							</div>
+						</div> -->
 						<div class="posting-share">
 							<div class="posting-share__container">
 								<div class="posting-share__text">Поделиться:</div>
@@ -1046,62 +1154,6 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="item-text">
-						<p>
-							<span>
-								<div class="accent-dialog">
-									<div class="accent-dialog__container">
-										<div class="accent-dialog__img">
-											<svg width="46" height="46" viewBox="0 0 46 46" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_2005_435)">
-													<rect width="46" height="46" rx="10" fill="#0D5680" />
-													<path
-														d="M20.834 26.6105V9.30908H26V26.6105H20.834ZM20.834 36.8862V31.0815H26V36.8862H20.834Z"
-														fill="white" />
-												</g>
-												<defs>
-													<clipPath id="clip0_2005_435">
-														<rect width="46" height="46" fill="white" />
-													</clipPath>
-												</defs>
-											</svg>
-										</div>
-										<div class="accent-dialog__content"> <span>Акцент «важно, интересно, обратите
-												внимание»</span>
-											<span>Акцент «важно, интересно, обратите внимание»</span>
-											<span>Акцент «важно, интересно, обратите внимание»</span>
-											<span>Акцент «важно, интересно, обратите внимание»</span>
-										</div>
-									</div>
-								</div>
-							</span>
-						</p>
-						<p>
-							<span>
-								<div class="accent-dialog">
-									<div class="accent-dialog__container">
-										<div class="accent-dialog__img">
-											<svg width="46" height="46" viewBox="0 0 46 46" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_2005_435)">
-													<rect width="46" height="46" rx="10" fill="#0D5680" />
-													<path
-														d="M20.834 26.6105V9.30908H26V26.6105H20.834ZM20.834 36.8862V31.0815H26V36.8862H20.834Z"
-														fill="white" />
-												</g>
-												<defs>
-													<clipPath id="clip0_2005_435">
-														<rect width="46" height="46" fill="white" />
-													</clipPath>
-												</defs>
-											</svg>
-										</div>
-										<div class="accent-dialog__content"><span>Акцент «важно, интересно, обратите
-												внимание»</span></div>
-									</div>
-								</div>
-							</span>
-						</p>
 						<p><span><img src="./oshibkisob.jpg" align="left" />Любая компания стремится найти кандидатов,
 								которые принесут ей пользу. При этом в процессе найма часто допускаются промахи, которые
 								могут серьезно повлиять на успех отбора, стать фатальными. Рассмотрим
@@ -1109,6 +1161,32 @@
 								Предупрежден &ndash; значит, вооружен. Ознакомление с ними поможет избежать неправильных
 								решений, улучшить качество отбора.</span></p>
 						<h2><span>Ошибка №1: неопределенные требования к вакансии</span></h2>
+
+						<!-- ТО ЧТО ДЕЛАЛ -->
+						 <div class="article-content">
+							<div class="article-content__container">
+								<div class="article-content__inner">
+									<div class="article-content__title">Содержание</div>
+									<div class="article-content__nested-list-wrap">
+										<ol class="nested-list">
+											<li>Название пункта
+											  <ol>
+												<li>Название пункта</li>
+												<li>Название пункта</li>
+											  </ol>
+											</li>
+											<li>Название пункта
+											  <ol>
+												<li>Название пункта</li>
+												<li>Название пункта</li>
+											  </ol>
+											</li>
+										  </ol>
+									</div>
+								</div>
+							</div>
+						 </div>
+
 						<p><span>Установление основных этапов при найме новых сотрудников приносит успех при отборе.
 								Наличие контрольного списка компетенций и следование ему при общении с соискателями
 								может значительно упростить процесс рассмотрения резюме, проведения
@@ -1144,6 +1222,32 @@
 								подойдет под выдвигаемые характеристики, будет и с работодателя спрашивать по максимуму:
 								зарплату выше средней, полный социальный пакет и т. д. Сможет ли компания все это
 								предоставить?</span></p>
+						<p>
+							<span>
+								<div class="accent-dialog">
+									<div class="accent-dialog__container">
+										<div class="accent-dialog__img">
+											<svg width="46" height="46" viewBox="0 0 46 46" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_2005_435)">
+													<rect width="46" height="46" rx="10" fill="#0D5680" />
+													<path
+														d="M20.834 26.6105V9.30908H26V26.6105H20.834ZM20.834 36.8862V31.0815H26V36.8862H20.834Z"
+														fill="white" />
+												</g>
+												<defs>
+													<clipPath id="clip0_2005_435">
+														<rect width="46" height="46" fill="white" />
+													</clipPath>
+												</defs>
+											</svg>
+										</div>
+										<div class="accent-dialog__content"><span>Акцент «важно, интересно, обратите
+												внимание»</span></div>
+									</div>
+								</div>
+							</span>
+						</p>
 						<p><span>Чтобы исправить это, надо рационально подойти к списку требований. Если работнику нужно
 								знание английского только в терминологии, стоит ли требовать от него свободное владение
 								им?</span></p>
@@ -1157,6 +1261,36 @@
 								проконсультироваться с другими сотрудниками компании, которые будут работать с новым
 								кадром в будущем. Проведение интервью с различными членами коллектива и учет их мнения
 								важны для принятия взвешенного решения.</span></p>
+						<p>
+							<span>
+								<div class="accent-dialog">
+									<div class="accent-dialog__container">
+										<div class="accent-dialog__img">
+											<svg width="46" height="46" viewBox="0 0 46 46" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_2005_435)">
+													<rect width="46" height="46" rx="10" fill="#0D5680" />
+													<path
+														d="M20.834 26.6105V9.30908H26V26.6105H20.834ZM20.834 36.8862V31.0815H26V36.8862H20.834Z"
+														fill="white" />
+												</g>
+												<defs>
+													<clipPath id="clip0_2005_435">
+														<rect width="46" height="46" fill="white" />
+													</clipPath>
+												</defs>
+											</svg>
+										</div>
+										<div class="accent-dialog__content"> <span>Акцент «важно, интересно, обратите
+												внимание»</span>
+											<span>Акцент «важно, интересно, обратите внимание»</span>
+											<span>Акцент «важно, интересно, обратите внимание»</span>
+											<span>Акцент «важно, интересно, обратите внимание»</span>
+										</div>
+									</div>
+								</div>
+							</span>
+						</p>
 						<h2><span>Ошибка №5: маленькая HR-воронка</span></h2>
 						<p>Компании <span>для поиска и обучения одного успешного сотрудника требуется в среднем 78
 								потенциально подходящих кадров. Если вы будете обрабатывать меньше, то в итоге получите
@@ -1989,7 +2123,7 @@
 
 						(function (e, t, n, i, s, a, c) {
 							e[n] = e[n] || function () { (e[n].q = e[n].q || []).push(arguments) }
-							; a = t.createElement(i); c = t.getElementsByTagName(i)[0]; a.async = true; a.src = s
+								; a = t.createElement(i); c = t.getElementsByTagName(i)[0]; a.async = true; a.src = s
 								; c.parentNode.insertBefore(a, c)
 						})(window, document, "galite", "script", "https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js");
 
