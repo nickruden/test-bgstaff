@@ -375,7 +375,8 @@
 
 		/* БЛОК СОДЕРЖАНИЕ */
 		.article-content {
-			padding-top: 100px;
+			padding-top: 30px;
+			clear: both;
 		}
 
 		.article-content__container {
@@ -401,6 +402,32 @@
 
 		.article-content__nested-list-wrap {
 			padding-bottom: 22px;
+		}
+
+		@media (max-width: 991px) {
+			.article-content {
+				padding-top: 60px;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.article-content {
+				padding-top: 40px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.article-content {
+				display: flex;
+				justify-content: center;
+				padding-top: 20px;
+			}
+		}
+
+		@media (max-width: 375px) {
+			.article-content__container {
+				padding: 19px 30px 19px 43px;
+			}
 		}
 
 
@@ -455,32 +482,6 @@
 		.nested-list ol>li:before {
 			content: counter(item) "." counter(subitem) ". ";
 			font-weight: 600;
-		}
-
-		@media (max-width: 991px) {
-			.article-content {
-				padding-top: 60px;
-			}
-		}
-
-		@media (max-width: 768px) {
-			.article-content {
-				padding-top: 40px;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.article-content {
-				display: flex;
-				justify-content: center;
-				padding-top: 20px;
-			}
-		}
-
-		@media (max-width: 375px) {
-			.article-content__container {
-				padding: 19px 30px 19px 43px;
-			}
 		}
 
 
